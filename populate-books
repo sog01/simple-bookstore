@@ -1,0 +1,100 @@
+{ "index" : { "_index" : "books", "_id" : "1" } }
+{ "name": "How to become a software engineer", "isbn": "978-3-16-148410-0" }
+{ "index" : { "_index" : "books", "_id" : "2" } }
+{ "name": "How to start your own code", "isbn": "978-3-16-148410-2" }
+{ "index" : { "_index" : "books", "_id" : "3" } }
+{ "name": "To Engineer is Human", "isbn": "978-3-16-148410-3" }
+{ "index" : { "_index" : "books", "_id" : "4" } }
+{ "name": "Brave New World", "isbn": "978-3-16-148410-4" }
+{ "index" : { "_index" : "books", "_id" : "5" } }
+{ "name": "Skunk Works", "isbn": "978-3-16-148410-5" }
+{ "index" : { "_index" : "books", "_id" : "6" } }
+{ "name": "The Mythical Man-Month", "isbn": "978-3-16-148410-6" }
+{ "index" : { "_index" : "books", "_id" : "7" } }
+{ "name": "The Pragmatic Programmer", "isbn": "978-3-16-148410-7" }
+{ "index" : { "_index" : "books", "_id" : "8" } }
+{ "name": "Clean Code", "isbn": "978-3-16-148410-8" }
+{ "index" : { "_index" : "books", "_id" : "9" } }
+{ "name": "The Great Bridge", "isbn": "978-3-16-148410-9" }
+{ "index" : { "_index" : "books", "_id" : "10" } }
+{ "name": "Code Complete", "isbn": "978-3-16-148411-0" }
+{ "index" : { "_index" : "books", "_id" : "11" } }
+{ "name": "Ender's Game", "isbn": "978-3-16-148411-1" }
+{ "index" : { "_index" : "books", "_id" : "12" } }
+{ "name": "Bad Blood", "isbn": "978-3-16-148411-2" }
+{ "index" : { "_index" : "books", "_id" : "13" } }
+{ "name": "The Art of Electronics", "isbn": "978-3-16-148411-3" }
+{ "index" : { "_index" : "books", "_id" : "14" } }
+{ "name": "The Omnivore's Dilemma", "isbn": "978-3-16-148411-4" }
+{ "index" : { "_index" : "books", "_id" : "15" } }
+{ "name": "The Lean Startup", "isbn": "978-3-16-148411-5" }
+{ "index" : { "_index" : "books", "_id" : "16" } }
+{ "name": "The Martian", "isbn": "978-3-16-148411-6" }
+{ "index" : { "_index" : "books", "_id" : "17" } }
+{ "name": "Thinking in Systems", "isbn": "978-3-16-148411-7" }
+{ "index" : { "_index" : "books", "_id" : "18" } }
+{ "name": "Practical Electronics for Inventors", "isbn": "978-3-16-148411-8" }
+{ "index" : { "_index" : "books", "_id" : "19" } }
+{ "name": "The Goal", "isbn": "978-3-16-148411-9" }
+{ "index" : { "_index" : "books", "_id" : "20" } }
+{ "name": "Steve Jobs", "isbn": "978-3-16-148412-0" }
+{ "index" : { "_index" : "books", "_id" : "21" } }
+{ "name": "Design Patterns", "isbn": "978-3-16-148412-1" }
+{ "index" : { "_index" : "books", "_id" : "22" } }
+{ "name": "Refactoring", "isbn": "978-3-16-148412-2" }
+{ "index" : { "_index" : "books", "_id" : "23" } }
+{ "name": "Introduction To Algorithms", "isbn": "978-3-16-148412-3" }
+{ "index" : { "_index" : "books", "_id" : "24" } }
+{ "name": "Ignition!", "isbn": "978-3-16-148412-4" }
+{ "index" : { "_index" : "books", "_id" : "25" } }
+{ "name": "The Art of War", "isbn": "978-3-16-148412-5" }
+{ "index" : { "_index" : "books", "_id" : "26" } }
+{ "name": "Stuff Matters", "isbn": "978-3-16-148412-6" }
+{ "index" : { "_index" : "books", "_id" : "27" } }
+{ "name": "The Idea Factory", "isbn": "978-3-16-148412-7" }
+{ "index" : { "_index" : "books", "_id" : "28" } }
+{ "name": "Pale Blue Dot", "isbn": "978-3-16-148412-8" }
+{ "index" : { "_index" : "books", "_id" : "29" } }
+{ "name": "Packing for Mars", "isbn": "978-3-16-148412-9" }
+{ "index" : { "_index" : "books", "_id" : "30" } }
+{ "name": "Materials Science and Engineering", "isbn": "978-3-16-148413-0" }
+{ "index" : { "_index" : "books", "_id" : "31" } }
+{ "name": "Sustainable Energy - Without the Hot Air", "isbn": "978-3-16-148413-1" }
+{ "index" : { "_index" : "books", "_id" : "32" } }
+{ "name": "Thing Explainer", "isbn": "978-3-16-148413-2" }
+{ "index" : { "_index" : "books", "_id" : "33" } }
+{ "name": "Structure and Interpretation of Computer Programs", "isbn": "978-3-16-148413-3" }
+{ "index" : { "_index" : "books", "_id" : "34" } }
+{ "name": "The Soul of a New Machine", "isbn": "978-3-16-148413-4" }
+{ "index" : { "_index" : "books", "_id" : "35" } }
+{ "name": "Designing Data-Intensive Applications", "isbn": "978-3-16-148413-5" }
+{ "index" : { "_index" : "books", "_id" : "36" } }
+{ "name": "Zen and the Art of Motorcycle Maintenance", "isbn": "978-3-16-148413-6" }
+{ "index" : { "_index" : "books", "_id" : "37" } }
+{ "name": "Rosie Revere, Engineer", "isbn": "978-3-16-148413-7" }
+{ "index" : { "_index" : "books", "_id" : "38" } }
+{ "name": "Basic Machines and How They Work", "isbn": "978-3-16-148413-8" }
+{ "index" : { "_index" : "books", "_id" : "39" } }
+{ "name": "The Everything Store", "isbn": "978-3-16-148413-9" }
+{ "index" : { "_index" : "books", "_id" : "40" } }
+{ "name": "Thermodynamics", "isbn": "978-3-16-148414-0" }
+{ "index" : { "_index" : "books", "_id" : "41" } }
+{ "name": "The Phoenix Project", "isbn": "978-3-16-148414-1" }
+{ "index" : { "_index" : "books", "_id" : "42" } }
+{ "name": "The C Programming Language", "isbn": "978-3-16-148414-2" }
+{ "index" : { "_index" : "books", "_id" : "43" } }
+{ "name": "The Existential Pleasures of Engineering", "isbn": "978-3-16-148414-3" }
+{ "index" : { "_index" : "books", "_id" : "44" } }
+{ "name": "Hidden Figures", "isbn": "978-3-16-148414-4" }
+{ "index" : { "_index" : "books", "_id" : "45" } }
+{ "name": "Physics of the Future", "isbn": "978-3-16-148414-5" }
+{ "index" : { "_index" : "books", "_id" : "46" } }
+{ "name": "The Singularity is Near", "isbn": "978-3-16-148414-6" }
+{ "index" : { "_index" : "books", "_id" : "47" } }
+{ "name": "Domain-Driven Design", "isbn": "978-3-16-148414-7" }
+{ "index" : { "_index" : "books", "_id" : "48" } }
+{ "name": "The New Science of Strong Materials", "isbn": "978-3-16-148414-8" }
+{ "index" : { "_index" : "books", "_id" : "49" } }
+{ "name": "Invention by Design", "isbn": "978-3-16-148414-9" }
+{ "index" : { "_index" : "books", "_id" : "50" } }
+{ "name": "The Innovators", "isbn": "978-3-16-148415-0" }
