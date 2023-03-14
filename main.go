@@ -10,6 +10,6 @@ func main() {
 	booksRepo := repository.NewBooksRepository("http://localhost:9200")
 	booksService := service.NewBooksService(booksRepo)
 
-	rest := handler.NewRest(booksService)
-	rest.ListenAndServe()
+	handler := handler.NewBooksHandler(booksService)
+	handler.ListenAndServe()
 }

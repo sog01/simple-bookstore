@@ -10,18 +10,18 @@ import (
 	"github.com/sog01/simple-bookstore/internal/service"
 )
 
-// Rest represent an rest handler object
-type Rest struct {
+// BooksHandler represent an rest handler object
+type BooksHandler struct {
 	booksService service.Books
 }
 
-// NewRest construct new rest object
-func NewRest(bookService service.Books) *Rest {
-	return &Rest{booksService: bookService}
+// NewBooksHandler construct new rest object
+func NewBooksHandler(bookService service.Books) *BooksHandler {
+	return &BooksHandler{booksService: bookService}
 }
 
 // GetBooks is get books from rest handler
-func (rest *Rest) GetBooks(w http.ResponseWriter, r *http.Request) {
+func (bh *BooksHandler) GetBooks(w http.ResponseWriter, r *http.Request) {
 	req := model.GetBooksRequest{}
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -29,7 +29,7 @@ func (rest *Rest) GetBooks(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	bookList, err := rest.booksService.GetBooks(r.Context(), &model.GetBooksRequest{
+	bookList, err := bh.booksService.GetBooks(r.Context(), &model.GetBooksRequest{
 		Page: req.Page,
 		Size: req.Size,
 	})
@@ -40,15 +40,15 @@ func (rest *Rest) GetBooks(w http.ResponseWriter, r *http.Request) {
 }
 
 // Router is rest handler router
-func (rest *Rest) Router(mux *http.ServeMux) {
-	mux.HandleFunc("/books/list", rest.GetBooks)
+func (bh *BooksHandler) Router(mux *http.ServeMux) {
+	mux.HandleFunc("/books/list", bh.GetBooks)
 }
 
 // ListenAndServe is listening and serving
-func (rest *Rest) ListenAndServe() {
+func (bh *BooksHandler) ListenAndServe() {
 	mux := &http.ServeMux{}
 	log.Println("listening server on port 8080")
-	rest.Router(mux)
+	bh.Router(mux)
 	http.ListenAndServe(":8080", mux)
 }
 
