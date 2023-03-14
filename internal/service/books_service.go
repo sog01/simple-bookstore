@@ -10,7 +10,7 @@ import (
 
 // Books represent books service contract
 type Books interface {
-	GetBooks(ctx context.Context, req *model.PaginationByNumberArgs) (*model.PaginationByNumber, error)
+	GetBooks(ctx context.Context, req *model.GetBooksRequest) (*model.GetBooksResponse, error)
 }
 
 // BooksService represent books service object implementation
@@ -26,7 +26,7 @@ func NewBooksService(repo repository.Books) *BooksService {
 }
 
 // GetBooks get books service
-func (s *BooksService) GetBooks(ctx context.Context, req *model.PaginationByNumberArgs) (*model.PaginationByNumber, error) {
+func (s *BooksService) GetBooks(ctx context.Context, req *model.GetBooksRequest) (*model.GetBooksResponse, error) {
 	if req.Page <= 1 {
 		req.Page = 0
 	}
@@ -36,7 +36,7 @@ func (s *BooksService) GetBooks(ctx context.Context, req *model.PaginationByNumb
 		log.Printf("failed get books: %v\n", err)
 		return nil, err
 	}
-	return &model.PaginationByNumber{
+	return &model.GetBooksResponse{
 		BookList: bookList,
 		Total:    total,
 		MaxPage:  total / req.Size,

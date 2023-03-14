@@ -22,14 +22,14 @@ func NewRest(bookService service.Books) *Rest {
 
 // GetBooks is get books from rest handler
 func (rest *Rest) GetBooks(w http.ResponseWriter, r *http.Request) {
-	req := model.PaginationByNumberArgs{}
+	req := model.GetBooksRequest{}
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		writeResponseBadRequest(w, errors.New("invalid request"))
 		return
 	}
 
-	bookList, err := rest.booksService.GetBooks(r.Context(), &model.PaginationByNumberArgs{
+	bookList, err := rest.booksService.GetBooks(r.Context(), &model.GetBooksRequest{
 		Page: req.Page,
 		Size: req.Size,
 	})

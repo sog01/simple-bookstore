@@ -10,27 +10,27 @@ type Book struct {
 // BookList represent a collection of book
 type BookList []*Book
 
-// PaginationByNumber represent a pagination by number for the collection of books
-type PaginationByNumber struct {
+// GetBooksResponse represent a pagination by number for the collection of books
+type GetBooksResponse struct {
 	Total    int      `json:"total"`
 	MaxPage  int      `json:"maxPage"`
 	BookList BookList `json:"bookList"`
 }
 
-// PaginationByNumberArgs represent a pagination by number arguments
-type PaginationByNumberArgs struct {
+// GetBooksRequest represent a pagination by number arguments
+type GetBooksRequest struct {
 	Page int `json:"page"`
 	Size int `json:"size"`
 }
 
-// PaginationByCursor represent a pagination by cursor for the collection of books
-type PaginationByCursor struct {
+// GetInfiniteBooksResponse represent a pagination by cursor for the collection of books
+type GetInfiniteBooksResponse struct {
 	NextCursor string   `json:"nextCursor"`
 	BookList   BookList `json:"bookList"`
 }
 
-// PaginationByCursorArgs represent a pagination by cursor arguments
-type PaginationByCursorArgs struct {
+// GetInfiniteBooksArgs represent a pagination by cursor arguments
+type GetInfiniteBooksArgs struct {
 	NextCursor int `json:"nextCursor"`
 	Size       int `json:"size"`
 }
