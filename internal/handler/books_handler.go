@@ -29,10 +29,7 @@ func (bh *BooksHandler) GetBooks(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	bookList, err := bh.booksService.GetBooks(r.Context(), &model.GetBooksRequest{
-		Page: req.Page,
-		Size: req.Size,
-	})
+	bookList, err := bh.booksService.GetBooks(r.Context(), &req)
 	if err != nil {
 		writeResponseInternalError(w, err)
 	}
