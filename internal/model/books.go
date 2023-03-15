@@ -23,14 +23,14 @@ type GetBooksRequest struct {
 	Size int `json:"size"`
 }
 
-// GetInfiniteBooksResponse represent a pagination by cursor for the collection of books
+// GetInfiniteBooksResponse represent a pagination by scroll for the collection of books
 type GetInfiniteBooksResponse struct {
-	NextCursor string   `json:"nextCursor"`
-	BookList   BookList `json:"bookList"`
+	NextScrollId string   `json:"nextScrollId"`
+	BookList     BookList `json:"bookList"`
 }
 
-// GetInfiniteBooksRequest represent a pagination by cursor requests
+// GetInfiniteBooksRequest represent a pagination by scroll requests
 type GetInfiniteBooksRequest struct {
-	NextCursor string `json:"nextCursor"`
-	Size       int    `json:"size"`
+	ScrollId string `json:"scrollId"`
+	Size     int    `json:"size"`
 }
