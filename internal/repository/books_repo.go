@@ -14,6 +14,7 @@ import (
 // Books represent books repository contract
 type Books interface {
 	GetBooks(ctx context.Context, from, size int) (model.BookList, int, error)
+	GetInfiniteBooks(ctx context.Context, scrollId string, size int) (model.BookList, string, error)
 }
 
 // BooksRepository represent books repository object implementation
@@ -56,6 +57,40 @@ func (r *BooksRepository) GetBooks(ctx context.Context, from, size int) (model.B
 	}
 
 	return bookList, searchHits.Hits.Total.Value, nil
+}
+
+// GetInfiniteBooks get infinite books from search after API
+func (r *BooksRepository) GetInfiniteBooks(ctx context.Context, scrollId string, size int) (model.BookList,
+	string,
+	error) {
+	esReq := map[string]interface{}{
+		"size": 5,
+	}
+	if scrollId != "" {
+		esReq["search_after"] = []interface{}{scrollId}
+	}
+	if size > 0 {
+		esReq["size"] = size
+	}
+	esReq["sort"] = map[string]interface{}{
+		"id": "asc",
+	}
+
+	url := fmt.Sprintf("%s/books/_search", r.esBaseURL)
+	searchHits := SearchHits{}
+	err := r.do(url, esReq, &searchHits)
+	if err != nil {
+		return nil, "", fmt.Errorf("failed get books from repository: %v", err)
+	}
+
+	bookList := model.BookList{}
+	for _, hit := range searchHits.Hits.Hits {
+		bookList = append(bookList, hit.Source)
+	}
+
+	lastHit := searchHits.Hits.Hits[len(searchHits.Hits.Hits)-1]
+	nextScrollId := fmt.Sprintf("%v", lastHit.Sort[0])
+	return bookList, nextScrollId, nil
 }
 
 func (r *BooksRepository) do(url string, dataReq interface{}, dst interface{}) error {

@@ -11,6 +11,7 @@ import (
 // Books represent books service contract
 type Books interface {
 	GetBooks(ctx context.Context, req *model.GetBooksRequest) (*model.GetBooksResponse, error)
+	GetInfiniteBooks(ctx context.Context, req *model.GetInfiniteBooksRequest) (*model.GetInfiniteBooksResponse, error)
 }
 
 // BooksService represent books service object implementation
@@ -40,5 +41,18 @@ func (s *BooksService) GetBooks(ctx context.Context, req *model.GetBooksRequest)
 		BookList: bookList,
 		Total:    total,
 		MaxPage:  total / req.Size,
+	}, nil
+}
+
+// GetInfiniteBooks get books service
+func (s *BooksService) GetInfiniteBooks(ctx context.Context, req *model.GetInfiniteBooksRequest) (*model.GetInfiniteBooksResponse, error) {
+	bookList, nextScrollId, err := s.repo.GetInfiniteBooks(ctx, req.ScrollId, req.Size)
+	if err != nil {
+		log.Printf("failed get infinite books: %v\n", err)
+		return nil, err
+	}
+	return &model.GetInfiniteBooksResponse{
+		NextScrollId: nextScrollId,
+		BookList:     bookList,
 	}, nil
 }

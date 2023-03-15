@@ -17,5 +17,6 @@ type Total struct {
 }
 
 type Hit struct {
-	Source *model.Book `json:"_source"`
+	Source *model.Book   `json:"_source"`
+	Sort   []interface{} `json:"sort"`
 }

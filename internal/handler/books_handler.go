@@ -36,9 +36,26 @@ func (bh *BooksHandler) GetBooks(w http.ResponseWriter, r *http.Request) {
 	writeResponseOK(w, bookList)
 }
 
+// GetInfiniteBooks is get infinite books from rest handler
+func (bh *BooksHandler) GetInfiniteBooks(w http.ResponseWriter, r *http.Request) {
+	req := model.GetInfiniteBooksRequest{}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		writeResponseBadRequest(w, errors.New("invalid request"))
+		return
+	}
+
+	bookList, err := bh.booksService.GetInfiniteBooks(r.Context(), &req)
+	if err != nil {
+		writeResponseInternalError(w, err)
+	}
+	writeResponseOK(w, bookList)
+}
+
 // Router is rest handler router
 func (bh *BooksHandler) Router(mux *http.ServeMux) {
 	mux.HandleFunc("/books/list", bh.GetBooks)
+	mux.HandleFunc("/books/infinite", bh.GetInfiniteBooks)
 }
 
 // ListenAndServe is listening and serving
