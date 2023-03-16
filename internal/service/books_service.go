@@ -28,11 +28,17 @@ func NewBooksService(repo repository.Books) *BooksService {
 
 // GetBooks get books service
 func (s *BooksService) GetBooks(ctx context.Context, req *model.GetBooksRequest) (*model.GetBooksResponse, error) {
-	if req.Page <= 1 {
-		req.Page = 0
+	page := req.Page
+	if page <= 1 {
+		page = 0
 	}
-	from := req.Page * req.Size
-	bookList, total, err := s.repo.GetBooks(ctx, from, req.Size)
+
+	size := req.Size
+	if req.Size <= 1 {
+		size = 6
+	}
+	from := page * size
+	bookList, total, err := s.repo.GetBooks(ctx, from, size)
 	if err != nil {
 		log.Printf("failed get books: %v\n", err)
 		return nil, err
@@ -40,7 +46,7 @@ func (s *BooksService) GetBooks(ctx context.Context, req *model.GetBooksRequest)
 	return &model.GetBooksResponse{
 		BookList: bookList,
 		Total:    total,
-		MaxPage:  total / req.Size,
+		MaxPage:  total / size,
 	}, nil
 }
 
