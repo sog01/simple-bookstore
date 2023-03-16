@@ -9,11 +9,13 @@ import (
 	"github.com/sog01/simple-bookstore/internal/service"
 )
 
+// BooksHandlerWeb represent a handler for books web
 type BooksHandlerWeb struct {
 	booksService service.Books
 	t            *template.Template
 }
 
+// NewBooksHandlerWeb construct handler for books web
 func NewBooksHandlerWeb(booksService service.Books) *BooksHandlerWeb {
 	files := []string{
 		"./web/templates/index.html",
@@ -26,10 +28,12 @@ func NewBooksHandlerWeb(booksService service.Books) *BooksHandlerWeb {
 	}
 }
 
+// HandleStaticFS handle for static file server
 func (bhw *BooksHandlerWeb) HandleStaticFS() http.Handler {
 	return http.FileServer(http.Dir("./web/static"))
 }
 
+// HandleGetBooksPage handle for get books web page
 func (bhw *BooksHandlerWeb) HandleGetBooksPage(w http.ResponseWriter, r *http.Request) {
 	req := &model.GetBooksRequest{}
 	req.Page, _ = strconv.Atoi(r.FormValue("page"))
@@ -56,6 +60,7 @@ func (bhw *BooksHandlerWeb) HandleGetBooksPage(w http.ResponseWriter, r *http.Re
 	})
 }
 
+// Router used to define the books web handler router
 func (bhw *BooksHandlerWeb) Router(mux *http.ServeMux) {
 	mux.Handle("/static/", http.StripPrefix("/static/", bhw.HandleStaticFS()))
 	mux.HandleFunc("/", bhw.HandleGetBooksPage)
