@@ -1,0 +1,65 @@
+.books {
+    display: flex;
+    margin-left: 13%;
+    flex-wrap: wrap;
+}
+
+.books .book {
+    width: 200px;
+    position: relative;
+    margin-right: 15%;
+    margin-top: 40px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.books .book.title {
+    background-color: white;
+    height: 15%;
+    font-weight: 850;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    font-size: small;
+    border-color: black;
+    border-style: solid;
+}
+
+.books img {
+    width: 100%;
+}
+
+.pagination {
+    margin-top: 50px;
+    margin-left:28%;
+    background-color: #f0f0f0;
+    height: 35px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.pagination .page {
+    color: #7f7f7f;
+    height: 35px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.pagination .page:hover {
+    color: #1f74ff;
+}
+
+.pagination .page.active {
+    background-color: #1f74ff;
+    color: #f9fcff;
+}

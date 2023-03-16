@@ -12,12 +12,16 @@ import (
 
 // BooksHandler represent an rest handler object
 type BooksHandler struct {
-	booksService service.Books
+	booksService    service.Books
+	booksHandlerWeb *BooksHandlerWeb
 }
 
 // NewBooksHandler construct new rest object
 func NewBooksHandler(bookService service.Books) *BooksHandler {
-	return &BooksHandler{booksService: bookService}
+	return &BooksHandler{
+		booksService:    bookService,
+		booksHandlerWeb: NewBooksHandlerWeb(bookService),
+	}
 }
 
 // GetBooks is get books from rest handler
@@ -32,6 +36,7 @@ func (bh *BooksHandler) GetBooks(w http.ResponseWriter, r *http.Request) {
 	bookList, err := bh.booksService.GetBooks(r.Context(), &req)
 	if err != nil {
 		writeResponseInternalError(w, err)
+		return
 	}
 	writeResponseOK(w, bookList)
 }
@@ -48,6 +53,7 @@ func (bh *BooksHandler) GetInfiniteBooks(w http.ResponseWriter, r *http.Request)
 	bookList, err := bh.booksService.GetInfiniteBooks(r.Context(), &req)
 	if err != nil {
 		writeResponseInternalError(w, err)
+		return
 	}
 	writeResponseOK(w, bookList)
 }
@@ -56,6 +62,9 @@ func (bh *BooksHandler) GetInfiniteBooks(w http.ResponseWriter, r *http.Request)
 func (bh *BooksHandler) Router(mux *http.ServeMux) {
 	mux.HandleFunc("/books/list", bh.GetBooks)
 	mux.HandleFunc("/books/infinite", bh.GetInfiniteBooks)
+
+	// handle web
+	bh.booksHandlerWeb.Router(mux)
 }
 
 // ListenAndServe is listening and serving
