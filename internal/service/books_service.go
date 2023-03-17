@@ -34,7 +34,7 @@ func (s *BooksService) GetBooks(ctx context.Context, req *model.GetBooksRequest)
 	}
 
 	size := req.Size
-	if req.Size <= 1 {
+	if req.Size < 1 {
 		size = 6
 	}
 	from := page * size
